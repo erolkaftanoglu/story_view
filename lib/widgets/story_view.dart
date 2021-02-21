@@ -31,13 +31,15 @@ class StoryItem {
   /// is because the next item to be displayed is taken by the last unshown
   /// story item.
   bool shown;
+  int index;
 
   /// The page content
   final Widget view;
   StoryItem(
     this.view, {
-      this.duration,
-        this.shown = false,
+    this.duration,
+    this.shown = false,
+    this.index = -1,
   }) : assert(duration != null, "[duration] should not be null");
 
   /// Short hand to create text-only page.
@@ -54,6 +56,7 @@ class StoryItem {
     Key key,
     TextStyle textStyle,
     bool shown = false,
+    int index = -1,
     bool roundedTop = false,
     bool roundedBottom = false,
     Duration duration,
@@ -98,6 +101,7 @@ class StoryItem {
         //color: backgroundColor,
       ),
       shown: shown,
+      index: index,
       duration: duration ?? Duration(seconds: 3),
     );
   }
@@ -110,6 +114,7 @@ class StoryItem {
     Key key,
     BoxFit imageFit = BoxFit.fitWidth,
     String caption,
+    int index = -1,
     bool shown = false,
     Map<String, dynamic> requestHeaders,
     Duration duration,
@@ -156,6 +161,7 @@ class StoryItem {
         ),
       ),
       shown: shown,
+      index: index,
       duration: duration ?? Duration(seconds: 3),
     );
   }
@@ -170,6 +176,7 @@ class StoryItem {
     BoxFit imageFit = BoxFit.cover,
     Map<String, dynamic> requestHeaders,
     bool shown = false,
+    int index = -1,
     bool roundedTop = true,
     bool roundedBottom = false,
     Duration duration,
@@ -210,6 +217,7 @@ class StoryItem {
         ),
       ),
       shown: shown,
+      index: index,
       duration: duration ?? Duration(seconds: 3),
     );
   }
@@ -224,6 +232,7 @@ class StoryItem {
     BoxFit imageFit = BoxFit.fitWidth,
     String caption,
     bool shown = false,
+    int index = -1,
     Map<String, dynamic> requestHeaders,
   }) {
     return StoryItem(
@@ -259,6 +268,7 @@ class StoryItem {
             ],
           ),
         ),
+        index: index,
         shown: shown,
         duration: duration ?? Duration(seconds: 10));
   }
@@ -271,6 +281,7 @@ class StoryItem {
     Key key,
     BoxFit imageFit = BoxFit.fitWidth,
     String caption,
+    int index = -1,
     bool shown = false,
     Duration duration,
   }) {
@@ -319,6 +330,7 @@ class StoryItem {
             ],
           ),
         ),
+        index: index,
         shown: shown,
         duration: duration ?? Duration(seconds: 3));
   }
@@ -331,6 +343,7 @@ class StoryItem {
     Key key,
     Text caption,
     bool shown = false,
+    int index = -1,
     bool roundedTop = true,
     bool roundedBottom = false,
     Duration duration,
@@ -366,6 +379,7 @@ class StoryItem {
         ),
       ),
       shown: shown,
+      index: index,
       duration: duration ?? Duration(seconds: 3),
     );
   }
